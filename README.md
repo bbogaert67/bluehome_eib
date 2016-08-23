@@ -6,8 +6,8 @@ files:
   bluehome.conf is the configuration file required for the main program
   
 required prior installed:
-  paho-mqtt3c : MQTT client
-  eibnetmux : EIB net interface
+  paho-mqtt3c : MQTT client, see http://www.eclipse.org/paho/
+  eibnetmux : EIB net interface, see http://eibnetmux.sourceforge.net/
   
 compile:
   gcc bluehome_eib.c  -L /usr/local/lib -lpaho-mqtt3c -lcurl -lpthread  -leibnetmux -lm -o bluehome_eib
