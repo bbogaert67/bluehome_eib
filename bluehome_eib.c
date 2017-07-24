@@ -276,20 +276,20 @@ int read_configfile(char * filename, struct config * configuration) {
   if (line[0] != '#') {   // skip commented line
      char * token = strtok(line,"=");
      if (strcmp(token,"ADDRESS") == 0)
-        strcpy(configuration->address,strtok(NULL,"\r"));
+        strcpy(configuration->address,strtok(NULL,"\n"));
 
      if (strcmp(token,"CLIENTID") == 0)
-        strcpy(configuration->clientid,strtok(NULL,"\r"));
+        strcpy(configuration->clientid,strtok(NULL,"\n"));
      if (strcmp(token,"QOS") == 0)
-        configuration->qos = atoi(strtok(NULL,"\r"));
+        configuration->qos = atoi(strtok(NULL,"\n"));
      if (strcmp(token,"TIMEOUT") == 0)
-        configuration->timeout = strtol(strtok(NULL,"\r"),NULL,0);
+        configuration->timeout = strtol(strtok(NULL,"\n"),NULL,0);
      if (strcmp(token,"USERNAME") == 0)
-        strcpy(configuration->username,strtok(NULL,"\r"));
+        strcpy(configuration->username,strtok(NULL,"\n"));
      if (strcmp(token,"PASSWORD") == 0)
-        strcpy(configuration->password,strtok(NULL,"\r"));
+        strcpy(configuration->password,strtok(NULL,"\n"));
     if (strcmp(token,"SOLAR_IP") == 0)
-       strcpy(configuration->solar_ip,strtok(NULL,"\r"));
+       strcpy(configuration->solar_ip,strtok(NULL,"\n"));
      if (strcmp(token,"DEVICE") == 0) {
         struct device * newdevice = (device *) malloc(sizeof(device));
         newdevice->next = configuration->devicelist;
@@ -297,7 +297,7 @@ int read_configfile(char * filename, struct config * configuration) {
         strcpy(newdevice->knx,strtok(NULL," "));
         strcpy(newdevice->name,strtok(NULL," "));
         strcpy(newdevice->event,strtok(NULL," "));
-        strcpy(newdevice->type,strtok(NULL,"\r"));
+        strcpy(newdevice->type,strtok(NULL,"\n"));
      }
     }
  }
